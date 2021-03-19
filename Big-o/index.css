@@ -1,0 +1,23 @@
+body {
+  margin: auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+.nemo {
+  position: fixed;
+  width: 50%;
+	height: 33%;	
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.console > div {
+  width: 1000px;
+  height: 200px;
+  background-color: rgba(128, 128, 128, 0.198);
+}

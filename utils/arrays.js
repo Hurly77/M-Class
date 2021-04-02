@@ -1,99 +1,84 @@
-const getInt = (i) => {
-	return Math.round(Math.random() * i);
-};
-randomItems = () => {
-	let dataTypes = {
-		0: {},
-		1: 96,
-		2: 9,
-		3: true,
-		4: false,
-	};
+let tools = require('./tools');
 
-		let item = dataTypes[getInt(4)];
-		if (typeof item === 'object') {
-      return item[getInt(1000)] = {key4: 1, key3: '2', key2: [], key1: true}
-		}
-		if (item === 9) {
-			return getInt(9);
-		}
-		if (typeof item === 'boolean') {
-			return item;
-		}
-		if (item === 96) {
-			ascii = Math.ceil(Math.random() * 26) + 96;
-			return String.fromCharCode(ascii);
-		}
-};
-
-const stringA = (n) => {
-	let newArray = [];
+const stringA = (n, arr) => {
 	for (let x = 0; x < n; x++) {
-		ascii = Math.ceil(Math.random() * 26) + 96;
-		newArray[x] = String.fromCharCode(ascii);
+		arr[x] = tools.randChar();
 	}
-	return newArray;
+	return arr;
 };
 
-const boolA = (n) => {
-	let newArray = [];
+const boolA = (n, arr) => {
 	for (let x = 0; x < n; x++) {
-		let io = Math.round(Math.random() * 1);
-		io === 0 ? (newArray[x] = true) : (newArray[x] = false);
+		arr[x] = tools.bool();
 	}
-	return newArray;
+	return arr;
 };
 
-const intA = (n, i) => {
-	let newArray = [];
+const intA = (n, i, arr) => {
 	for (let x = 0; x < n; x++) {
 		randInt = Math.ceil(Math.random() * i);
-		newArray[x] = randInt;
+		arr[x] = randInt;
 	}
-	return newArray;
+	return arr;
 };
 
-const aa = (n) => {
-	let newArray = [];
+const aa = (n, arr) => {
 	for (let x = 0; x < n; x++) {
-		newArray[x] = [getInt(10000)];
+		arr[x] = [tools.randScalar()];
 	}
-	return newArray;
+	return arr;
 };
 
-const objA = (n, i) => {
-	let newArray = [];
+const objA = (n, arr) => {
 	for (let x = 0; x < n; x++) {
-    let obj = {}
-    obj[getInt(x)] = getInt(n)
-		newArray[x] = obj
+		let obj = {};
+		obj[tools.getInt(x)] = tools.randScalar();
+		arr[x] = obj;
 	}
-	return newArray;
+	return arr;
 };
+
+const mixA = (n, arr) => {
+	for(let i=0; i< n; i++){
+		arr[i] = tools.randItem()
+	}
+	return arr
+}
+
+const fixedA = (n, data=0, arr=[]) => {
+	for (let i = 0; i < n ;i++) {
+		arr[i] = data
+	}
+	return arr
+}
 
 const randomArray = (data, n, int = 9) => {
+	let newA = [];
 	switch (data) {
 		case 'string':
-			return stringA(n);
+			return stringA(n, newA);
 
 		case 'bool':
-			return boolA(n);
+			return boolA(n, newA);
 
 		case 'integer':
-			return intA(n, int);
+			return intA(n, int, newA);
 
 		case 'array':
-			return aa(n);
+			return aa(n, newA);
 
 		case 'object':
-			return objA(n);
+			return objA(n, newA);
 
 		case 'mix':
-			return aa(n);
+			return mixA(n, newA);
 
 		default:
-			return aa(10);
+			return aa(10, newA);
 	}
 };
 
-module.exports = randomArray;
+module.exports ={
+	radArray: randomArray,
+	fixArray: fixedA,
+}

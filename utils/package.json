@@ -1,0 +1,22 @@
+{
+  "name": "rad-arrays",
+  "version": "0.1.0",
+  "description": "Random Array generator",
+  "main": "arrays.js",
+  "scripts": {
+    "test": "\"test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hurly77/rad-arrays.git"
+  },
+  "keywords": [
+    "arrays"
+  ],
+  "author": "C.J Levey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hurly77/rad-arrays/issues"
+  },
+  "homepage": "https://github.com/Hurly77/rad-arrays#readme"
+}

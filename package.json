@@ -1,0 +1,19 @@
+{
+  "name": "m-class",
+  "version": "0.1.0",
+  "description": "\"Data and algos paractice\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hurly77/M-Class.git"
+  },
+  "author": "CJ. Leverett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hurly77/M-Class/issues"
+  },
+  "homepage": "https://github.com/Hurly77/M-Class#readme"
+}
